@@ -68,20 +68,13 @@ MIT – viz [LICENSE](LICENSE). Otevřený kód, můžete si ho prohlédnout i u
 
 Repozitář obsahuje grafickou aplikaci (`gui/`, WPF / .NET 8) i PowerShell variantu se stejným jádrem (`src/Invoke-BoitHardenHome.ps1`).
 
-Hotový `.exe` vzniká automaticky přes GitHub Actions (`.github/workflows/build.yml`) – každý push ho vystaví jako artifact, tag `v*` z něj udělá veřejný Release.
+Hotový `.exe` vzniká automaticky přes GitHub Actions (`.github/workflows/build.yml`) – každý push do `main` ho vystaví jako artifact a zároveň aktualizuje veřejný Release `latest`, který si uživatelé stahují.
 
 Lokální build (potřebujete .NET 8 SDK):
 
 ```powershell
 dotnet publish gui\BoitHardenHome.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o publish
 # výsledek: publish\BoitHardenHome.exe
-```
-
-Vydání nové verze:
-
-```bash
-git tag v0.2.0
-git push origin v0.2.0   # spustí build a publikaci Release s .exe
 ```
 
 </details>
