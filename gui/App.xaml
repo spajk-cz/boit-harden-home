@@ -1,0 +1,76 @@
+<Application x:Class="BoitHardenHome.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Barvy BOIT -->
+        <Color x:Key="cBg">#FF0A0B0D</Color>
+        <Color x:Key="cCard">#FF15171B</Color>
+        <Color x:Key="cCard2">#FF1C1F24</Color>
+        <Color x:Key="cLine">#FF262A30</Color>
+        <Color x:Key="cLime">#FFD3FC23</Color>
+        <Color x:Key="cText">#FFE8EBEE</Color>
+        <Color x:Key="cMut">#FF8A929C</Color>
+
+        <SolidColorBrush x:Key="bBg"    Color="{StaticResource cBg}"/>
+        <SolidColorBrush x:Key="bCard"  Color="{StaticResource cCard}"/>
+        <SolidColorBrush x:Key="bCard2" Color="{StaticResource cCard2}"/>
+        <SolidColorBrush x:Key="bLine"  Color="{StaticResource cLine}"/>
+        <SolidColorBrush x:Key="bLime"  Color="{StaticResource cLime}"/>
+        <SolidColorBrush x:Key="bText"  Color="{StaticResource cText}"/>
+        <SolidColorBrush x:Key="bMut"   Color="{StaticResource cMut}"/>
+
+        <!-- Primarni tlacitko (limetka) -->
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource bLime}"/>
+            <Setter Property="Foreground" Value="#FF0A0B0D"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="18,10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="b" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="b" Property="Background" Value="#FFE4FF5A"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="b" Property="Background" Value="#FF3A3F46"/>
+                                <Setter Property="Foreground" Value="#FF8A929C"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Sekundarni tlacitko (obrys) -->
+        <Style x:Key="GhostButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource bText}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="16,10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="b" Background="{TemplateBinding Background}" BorderBrush="{StaticResource bLine}"
+                                BorderThickness="1" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="b" Property="BorderBrush" Value="{StaticResource bLime}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>

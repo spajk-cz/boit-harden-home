@@ -1,0 +1,10 @@
+# Runtime data (generované za běhu, nepatří do repa)
+runs/
+reports/
+*.log
+
+# .NET build
+bin/
+obj/
+publish/
+*.user
